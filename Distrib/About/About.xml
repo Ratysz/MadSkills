@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>RT Mad Skills</name>
+	<author>Ratys</author>
+	<targetVersion>Alpha 9</targetVersion>
+	<description>
+		A tiny component to make natural skill degradation a thing of the past.
+	</description>
+</ModMetaData>
