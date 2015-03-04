@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Buildings>
+
+	<ThingDef>
+    <defName>RTMadSkills_Injector</defName>
+    <eType>BuildingComplex</eType>
+    <label>mad skills injector</label>
+    <designationCategory>Misc</designationCategory>
+    <category>Building</category>
+    <thingClass>Building</thingClass>
+    <graphicPath>DarkMatterGenerator</graphicPath>
+    <graphicClass>Graphic_Single</graphicClass>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <altitudeLayer>Waist</altitudeLayer>
+    <statBases>
+      <MaxHealth>777</MaxHealth>
+      <WorkToMake>0</WorkToMake>
+      <Flammability>0.0</Flammability>
+      <Beauty>0</Beauty>
+    </statBases>
+    <description>Injects your map with RTMadSkills.MapComponent_RTSkillIncreaser, so YOU don't have to!</description>
+    <size>(1,1)</size>
+    <costList>
+      <Steel>1</Steel>
+    </costList>
+    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <graphicOverdraw>false</graphicOverdraw>
+    <pathCost>30</pathCost>
+    <sunShadowInfo>
+      <basewidth>0.3</basewidth>
+      <baseHeight>0.3</baseHeight>
+      <tallness>0.6</tallness>
+    </sunShadowInfo>
+    <tickerType>Never</tickerType>
+    <rotatable>false</rotatable>
+    <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
+    <selectable>true</selectable>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <repairEffect>Repair</repairEffect>
+    <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+    <filthLeaving>BuildingRubble</filthLeaving>
+    <comps>
+      <li>
+        <compClass>RTMadSkills.CompRTMapComponentAdder</compClass>
+      </li>
+    </comps>
+	</ThingDef>
+	
+</Buildings>
