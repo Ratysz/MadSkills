@@ -12,24 +12,35 @@ namespace RTMadSkills
 {
     class CompRTMapComponentAdder : ThingComp
     {
+        private CompProperties_RTMapComponentAdder compProps
+        {
+            get
+            {
+                return (CompProperties_RTMapComponentAdder)props;
+            }
+        }
+
         public override void PostSpawnSetup()
         {
-            string assemblyName = "RTMadSkills.dll";
-            string mapComponentName = "RTMadSkills.MapComponent_RTSkillIncreaser";
-            if (Find.Map.components.FindAll(x => x.GetType().ToString() == mapComponentName).Count != 0)
+            if (compProps.assemblyName == null || compProps.mapComponentName == null)
             {
-                Log.Message("MapComponent already exists!");
+                Log.Warning("MapComponent Injector: target not specified!");
+                return;
+            }
+            if (Find.Map.components.FindAll(x => x.GetType().ToString() == compProps.mapComponentName).Count != 0)
+            {
+                Log.Message("MapComponent Injector: map already has a " + compProps.mapComponentName + "!");
                 parent.Destroy(DestroyMode.Vanish);
             }
             else
             {
-                Log.Message("Looking for MapComponent...");
-                Assembly assembly = Assembly.LoadFile(assemblyName);
-                Type type = assembly.GetType(mapComponentName);
+                Log.Message("MapComponent Injector: looking for " + compProps.mapComponentName + " in " + compProps.assemblyName + "...");
+                Assembly assembly = Assembly.LoadFile(compProps.assemblyName);
+                Type type = assembly.GetType(compProps.mapComponentName);
                 object mapComponent = Activator.CreateInstance(type, new object[0] { });
-                Log.Message("Adding MapComponent...");
+                Log.Message("MapComponent Injector: adding " + compProps.mapComponentName + "...");
                 Find.Map.components.Add((MapComponent)mapComponent);
-                Log.Message("Success!");
+                Log.Message("MapComponent Injector: success!");
                 parent.Destroy(DestroyMode.Vanish);
             }
         }

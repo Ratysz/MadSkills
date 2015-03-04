@@ -41,8 +41,10 @@
     <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
     <filthLeaving>BuildingRubble</filthLeaving>
     <comps>
-      <li>
+      <li Class="RTMadSkills.CompProperties_RTMapComponentAdder">
         <compClass>RTMadSkills.CompRTMapComponentAdder</compClass>
+        <assemblyName>RTMadSkills.dll</assemblyName>
+        <mapComponentName>RTMadSkills.MapComponent_RTSkillIncreaser</mapComponentName>
       </li>
     </comps>
 	</ThingDef>
