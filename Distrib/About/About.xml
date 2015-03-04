@@ -4,6 +4,6 @@
 	<author>Ratys</author>
 	<targetVersion>Alpha 9</targetVersion>
 	<description>
-		A tiny component to prevent natural skill degradation bringing skills down a level - now degradation stops when a skill goes below 1% experience required for nex level.
+		A tiny component to prevent natural skill degradation bringing skills down a level - now degradation stops when a skill goes below 1% experience required for next level.
 	</description>
 </ModMetaData>
