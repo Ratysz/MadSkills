@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+	<ThingDef>
+		<defName>RTMadSkillsInjector</defName>    <!-- Replace with your namespace, for safety. -->
+		<category>Building</category>
+		<eType>BuildingComplex</eType>
+		<menuHidden>true</menuHidden>
+		<label>ModInitializer</label>
+		<thingClass>RTMadSkills.MapComponentInjector</thingClass>   <!-- Replace namespace. -->
+		<inspectorTabs>
+			<li>RTMadSkills.MapComponentInjector</li>   <!-- Replace namespace. -->
+		</inspectorTabs>
+	</ThingDef>
+</ThingDefs>
