@@ -24,37 +24,37 @@ namespace RTMadSkills
                             switch (skillRecord.level)
                             {       // Similar thing happens in SkillRecord.Interval()
                                 case 10:
-                                    skillRecord.Learn(0.125f / skillRecord.LearningFactor);     // SkillRecord.Interval() pre-multiplies positive gains.
+                                    skillRecord.Learn(0.1f / skillRecord.LearningFactor);     // SkillRecord.Interval() pre-multiplies positive gains.
                                     break;
                                 case 11:
-                                    skillRecord.Learn(0.25f / skillRecord.LearningFactor);
+                                    skillRecord.Learn(0.2f / skillRecord.LearningFactor);
                                     break;
                                 case 12:
-                                    skillRecord.Learn(0.5f / skillRecord.LearningFactor);
+                                    skillRecord.Learn(0.4f / skillRecord.LearningFactor);
                                     break;
                                 case 13:
-                                    skillRecord.Learn(1f / skillRecord.LearningFactor);
+                                    skillRecord.Learn(0.65f / skillRecord.LearningFactor);
                                     break;
                                 case 14:
-                                    skillRecord.Learn(1.5f / skillRecord.LearningFactor);
+                                    skillRecord.Learn(1f / skillRecord.LearningFactor);
                                     break;
                                 case 15:
-                                    skillRecord.Learn(2.1f / skillRecord.LearningFactor);
+                                    skillRecord.Learn(1.5f / skillRecord.LearningFactor);
                                     break;
                                 case 16:
-                                    skillRecord.Learn(3.5f / skillRecord.LearningFactor);
+                                    skillRecord.Learn(2f / skillRecord.LearningFactor);
                                     break;
                                 case 17:
-                                    skillRecord.Learn(5f / skillRecord.LearningFactor);
+                                    skillRecord.Learn(3f / skillRecord.LearningFactor);
                                     break;
                                 case 18:
-                                    skillRecord.Learn(7f / skillRecord.LearningFactor);
+                                    skillRecord.Learn(4f / skillRecord.LearningFactor);
                                     break;
                                 case 19:
-                                    skillRecord.Learn(8f / skillRecord.LearningFactor);
+                                    skillRecord.Learn(6f / skillRecord.LearningFactor);
                                     break;
                                 case 20:
-                                    skillRecord.Learn(12f / skillRecord.LearningFactor);
+                                    skillRecord.Learn(8f / skillRecord.LearningFactor);
                                     break;
                             }
                         }
