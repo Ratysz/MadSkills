@@ -2,7 +2,7 @@
 <ModMetaData>
 	<name>Mad Skills - 50%</name>
 	<author>Ratys</author>
-	<targetVersion>Alpha 9</targetVersion>
+	<targetVersion>Alpha 10</targetVersion>
 	<description>
 		A tiny component to make natural skill degradation be half as potent.
 	</description>
