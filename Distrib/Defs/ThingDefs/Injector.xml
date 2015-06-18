@@ -3,7 +3,6 @@
 	<ThingDef>
 		<defName>RTMadSkillsInjector</defName>    <!-- Replace with your namespace, for safety. -->
 		<category>Building</category>
-		<eType>BuildingComplex</eType>
 		<menuHidden>true</menuHidden>
 		<label>ModInitializer</label>
 		<thingClass>RTMadSkills.MapComponentInjector</thingClass>   <!-- Replace namespace. -->
