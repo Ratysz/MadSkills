@@ -2,8 +2,8 @@
 <ModMetaData>
 	<name>Mad Skills</name>
 	<author>Ratys</author>
-	<targetVersion>Alpha 12</targetVersion>
+	<targetVersion>Alpha 13</targetVersion>
 	<description>
-		A tiny component to make natural skill degradation a thing of the past.
+A tiny component to make natural skill degradation a thing of the past.
 	</description>
 </ModMetaData>
