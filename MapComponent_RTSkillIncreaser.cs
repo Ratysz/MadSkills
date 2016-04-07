@@ -13,7 +13,7 @@ namespace RTMadSkills
     {
         public override void MapComponentTick()
         {
-            foreach (Pawn pawn in Find.Map.listerPawns.AllPawns)
+            foreach (Pawn pawn in Find.Map.mapPawns.AllPawns)
             {       // Iterate over each pawn.
                 if (pawn != null && pawn.skills != null && pawn.skills.skills != null && (Find.TickManager.TicksGame + pawn.thingIDNumber) % 200 == 0)
                 {       // NRE safety, because screw it; same check is done by Pawn_SkillTracker.SkillsTick()
