@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-	<name>Mad Skills</name>
+	<name>Mad Skills - 50%</name>
 	<author>Ratys</author>
 	<targetVersion>0.14.1238</targetVersion>
-	<description>A tiny component to make natural skill degradation a thing of the past.</description>
+	<description>A tiny component to make natural skill degradation half as potent.</description>
 </ModMetaData>
