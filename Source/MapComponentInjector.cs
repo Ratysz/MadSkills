@@ -10,10 +10,10 @@ using RimWorld;
 namespace RTMadSkills       // Replace with yours.
 {       // This code is mostly borrowed from Pawn State Icons mod by Dan Sadler, which has open source and no license I could find, so...
 	[StaticConstructorOnStartup]
-	class MapComponentInjectorBehavior : MonoBehaviour
+	public class MapComponentInjectorBehavior : MonoBehaviour
 	{
 		public static readonly string mapComponentName = "RTMadSkills.MapComponent_RTSkillIncreaser";       // Ditto.
-		private RTMadSkills.MapComponent_RTSkillIncreaser mapComponent = new RTMadSkills.MapComponent_RTSkillIncreaser();       // Ditto.
+		private static readonly RTMadSkills.MapComponent_RTSkillIncreaser mapComponent = new RTMadSkills.MapComponent_RTSkillIncreaser();       // Ditto.
 
 		#region No editing required
 		protected bool reinjectNeeded = false;
