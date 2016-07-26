@@ -13,7 +13,7 @@ namespace RTMadSkills       // Replace with yours.
 	public class MapComponentInjectorBehavior : MonoBehaviour
 	{
 		public static readonly string mapComponentName = "RTMadSkills.MapComponent_RTSkillIncreaser";       // Ditto.
-		private RTMadSkills.MapComponent_RTSkillIncreaser mapComponent = new RTMadSkills.MapComponent_RTSkillIncreaser();       // Ditto.
+		private static readonly RTMadSkills.MapComponent_RTSkillIncreaser mapComponent = new RTMadSkills.MapComponent_RTSkillIncreaser();       // Ditto.
 
 		#region No editing required
 		protected bool reinjectNeeded = false;
