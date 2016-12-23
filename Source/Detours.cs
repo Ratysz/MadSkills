@@ -8,49 +8,36 @@ using RimWorld;
 
 namespace RTMadSkills
 {
-	public enum RTMadSkillsMode : byte
-	{
-		Straight,
-		Halved,
-		Tiered
-	}
-
 	internal static class Detours_RTMadSkills
 	{
-		private static readonly RTMadSkillsMode mode = RTMadSkillsMode.Tiered;
-
 		internal static void Interval(this SkillRecord skillRecord)
 		{
-			if (null != skillRecord)
+			if (Find.TickManager.TicksAbs % 60000 <= 200)
 			{
-				if (RTMadSkillsMode.Straight == mode ||
-					(RTMadSkillsMode.Tiered == mode && skillRecord.XpProgressPercent > 0.01f))
+				skillRecord.xpSinceMidnight = 0f;
+			}
+			if (skillRecord.XpProgressPercent < 0.01f)
+			{
+				return;
+			}
+			else
+			{
+				float xp = 0.0f;
+				switch (skillRecord.Level)
 				{
-					return;
+					case 10: xp = -0.1f; break;
+					case 11: xp = -0.2f; break;
+					case 12: xp = -0.4f; break;
+					case 13: xp = -0.65f; break;
+					case 14: xp = -1.0f; break;
+					case 15: xp = -1.5f; break;
+					case 16: xp = -2.0f; break;
+					case 17: xp = -3.0f; break;
+					case 18: xp = -4.0f; break;
+					case 19: xp = -6.0f; break;
+					case 20: xp = -8.0f; break;
 				}
-				else
-				{
-					float xp = 0.0f;
-					switch (skillRecord.Level)
-					{
-						case 10: xp = -0.1f; break;
-						case 11: xp = -0.2f; break;
-						case 12: xp = -0.4f; break;
-						case 13: xp = -0.65f; break;
-						case 14: xp = -1.0f; break;
-						case 15: xp = -1.5f; break;
-						case 16: xp = -2.0f; break;
-						case 17: xp = -3.0f; break;
-						case 18: xp = -4.0f; break;
-						case 19: xp = -6.0f; break;
-						case 20: xp = -8.0f; break;
-					}
-					if (RTMadSkillsMode.Halved == mode)
-					{
-						xp /= 2;
-					}
-					skillRecord.Learn(xp, false);
-				}
+				skillRecord.Learn(xp, false);
 			}
 		}
 	}
@@ -68,7 +55,9 @@ namespace RTMadSkills
 			MethodInfo originalInterval = typeof(SkillRecord).GetMethod(
 				"Interval",
 				BindingFlags.Instance | BindingFlags.Public,
-				null, null, null);
+				null,
+				new Type[] { },
+				null);
 
 			MethodInfo modifiedInterval = typeof(Detours_RTMadSkills).GetMethod(
 				"Interval",
