@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-	<name>Mad Skills</name>
+	<name>Mad Skills - Tiered</name>
 	<author>Ratys</author>
-	<targetVersion>0.15.1280</targetVersion>
-	<description>A tiny component to make natural skill degradation a thing of the past.</description>
+	<targetVersion>0.16.1393</targetVersion>
+	<description>A tiny mod to prevent natural skill degradation bringing skills down a level - now degradation stops when a skill goes below 1% experience required for next level.</description>
 </ModMetaData>
