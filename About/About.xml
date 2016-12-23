@@ -3,5 +3,5 @@
 	<name>Mad Skills - Tiered</name>
 	<author>Ratys</author>
 	<targetVersion>0.16.1393</targetVersion>
-	<description>A tiny mod to prevent natural skill degradation bringing skills down a level - now degradation stops when a skill goes below 1% experience required for next level.</description>
+	<description>A tiny mod to make natural skill degradation half as potent.</description>
 </ModMetaData>
