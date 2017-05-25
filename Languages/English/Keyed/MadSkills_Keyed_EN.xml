@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<MadSkills_SettingsCategory>Mad Skills</MadSkills_SettingsCategory>
+	<MadSkills_MultiplierLabel>Decay multiplier</MadSkills_MultiplierLabel>
+	<MadSkills_MultiplierTip>(Value to multiplay default decay potency by. 0 for none, 0.5 for half, 2 for double, etc)</MadSkills_MultiplierTip>
+	<MadSkills_TieredLabel>Tiered</MadSkills_TieredLabel>
+	<MadSkills_TieredTip>Prevents skills from going down a level; XP to next level decays as per multiplier setting.</MadSkills_TieredTip>
+
+</LanguageData>
