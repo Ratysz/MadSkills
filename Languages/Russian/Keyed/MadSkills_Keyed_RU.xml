@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<MadSkills_SettingsCategory>Mad Skills</MadSkills_SettingsCategory>
+	<MadSkills_MultiplierLabel>Множитель потери опыта</MadSkills_MultiplierLabel>
+	<MadSkills_MultiplierTip>(Значение, умножающее стандартное падение опыта навыков со временем. 0 для отключения, 0.5 для половины, 2 для удвоения, и т.д.)</MadSkills_MultiplierTip>
+	<MadSkills_TieredLabel>Не понижать уровень</MadSkills_TieredLabel>
+	<MadSkills_TieredTip>Предотвращает снижение уровня навыков; опыт до следующего уровня теряется в соответствии с настройкой множителя.</MadSkills_TieredTip>
+
+</LanguageData>
