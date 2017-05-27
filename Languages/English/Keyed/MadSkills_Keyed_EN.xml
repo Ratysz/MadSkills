@@ -3,7 +3,8 @@
 
 	<MadSkills_SettingsCategory>Mad Skills</MadSkills_SettingsCategory>
 	<MadSkills_MultiplierLabel>Decay multiplier</MadSkills_MultiplierLabel>
-	<MadSkills_MultiplierTip>(Value to multiplay default decay potency by. 0 for none, 0.5 for half, 2 for double, etc)</MadSkills_MultiplierTip>
+	<MadSkills_MultiplierTip>Value to multiply default skill XP decay potency by, in percent.
+0 for none, 50 for half, 200 for double, etc.</MadSkills_MultiplierTip>
 	<MadSkills_TieredLabel>Tiered</MadSkills_TieredLabel>
 	<MadSkills_TieredTip>Prevents skills from going down a level; XP to next level decays as per multiplier setting.</MadSkills_TieredTip>
 
