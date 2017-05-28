@@ -1,32 +1,28 @@
 ﻿using Harmony;
 using RimWorld;
+using Verse;
+using System.Collections.Generic;
+using System.Reflection;
+using System.Linq;
 
 namespace RTMadSkills
 {
 	[HarmonyPriority(Priority.HigherThanNormal)]
-	[HarmonyPatch(typeof(SkillRecord), "Interval")]
-	static class MadSkills_Patch
+	[HarmonyPatch(typeof(SkillRecord))]
+	[HarmonyPatch("Interval")]
+	static class Patch_SkillRecordInterval
 	{
-		private static bool tiered = false;
-		private static float multiplier = 0.0f;
-
 		static bool Prefix(SkillRecord __instance)
 		{
-			if (!tiered || __instance.XpProgressPercent > 0.1f)
+			if (!ModSettings.tiered || __instance.XpProgressPercent > 0.1f)
 			{
-				float xpToLearn = VanillaMultiplier(__instance.levelInt) * multiplier;
+				float xpToLearn = VanillaMultiplier(__instance.levelInt) * ModSettings.multiplier;
 				if (xpToLearn != 0.0f)
 				{
 					__instance.Learn(xpToLearn, false);
 				}
 			}
 			return false;
-		}
-
-		public static void ApplySettings(bool tiered, float multiplier)
-		{
-			MadSkills_Patch.tiered = tiered;
-			MadSkills_Patch.multiplier = multiplier;
 		}
 
 		public static float VanillaMultiplier(int level)

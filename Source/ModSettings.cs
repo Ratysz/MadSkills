@@ -3,21 +3,31 @@ using UnityEngine;
 
 namespace RTMadSkills
 {
-	public class MadSkills_ModSettings : ModSettings
+	public class ModSettings : Verse.ModSettings
 	{
-		public bool tiered = false;
-		public int multiplierPercentage = 0;
+		public static bool tiered = false;
+		public static int multiplierPercentage = 0;
+		public static float multiplier
+		{
+			get
+			{
+				return multiplierPercentage / 100.0f;
+			}
+			set
+			{
+				multiplierPercentage = Mathf.RoundToInt(multiplier * 100);
+			}
+		}
 
 		public override void ExposeData()
 		{
-			float multiplier = multiplierPercentage / 100.0f;
+			float multiplier_shadow = multiplier;
 			base.ExposeData();
 			Scribe_Values.Look(ref tiered, "tiered");
-			Scribe_Values.Look(ref multiplier, "multiplier");
-			MadSkills_Patch.ApplySettings(tiered, multiplier);
-			Log.Message("[MadSkills]: settings initialized, multiplier is " + multiplier
+			Scribe_Values.Look(ref multiplier_shadow, "multiplier");
+			Log.Message("[MadSkills]: settings initialized, multiplier is " + multiplier_shadow
 				+ ", " + (tiered ? "tiered" : "not tiered") + ".");
-			multiplierPercentage = Mathf.RoundToInt(multiplier * 100);
+			multiplierPercentage = Mathf.RoundToInt(multiplier_shadow * 100);
 		}
 
 		public string SettingsCategory()

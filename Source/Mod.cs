@@ -6,16 +6,16 @@ using UnityEngine;
 
 namespace RTMadSkills
 {
-	public class MadSkills_Mod : Mod
+	public class Mod : Verse.Mod
 	{
-		public MadSkills_ModSettings settings;
+		public ModSettings settings;
 
-		public MadSkills_Mod(ModContentPack content) : base(content)
+		public Mod(ModContentPack content) : base(content)
 		{
 			var harmony = HarmonyInstance.Create("io.github.ratysz.madskills");
 			harmony.PatchAll(Assembly.GetExecutingAssembly());
 
-			settings = GetSettings<MadSkills_ModSettings>();
+			settings = GetSettings<ModSettings>();
 		}
 
 		public override string SettingsCategory()
