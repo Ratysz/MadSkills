@@ -1,25 +1,30 @@
 ﻿using Harmony;
 using RimWorld;
 using Verse;
+using System.Linq;
+using System.Reflection;
 using System.Collections.Generic;
 
 namespace RTMadSkills
 {
 	[HarmonyPatch(typeof(SkillRecord))]
-	[HarmonyPatch("LearningSaturatedToday", PropertyMethod.Getter)]
+	[HarmonyPatch("LearnRateFactor")]
 	static class Patch_LearningSaturation
 	{
-		static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+		static void Postfix(SkillRecord __instance, ref float __result, bool direct = false)
 		{
-			return instructions.MethodReplacer(
-				typeof(SkillRecord).GetProperty("LearningSaturatedToday").GetAccessors()[0],
-				typeof(Patch_LearningSaturation).GetMethod("IsSaturated"));
-		}
-
-		static bool IsSaturated(SkillRecord __instance)
-		{
-			Log.Message("ping");
-			return true;
+			if (!direct)
+			{
+				if (__instance.LearningSaturatedToday)
+				{
+					__result /= 0.2f;
+				}
+				if (ModSettings.saturatedXPMultiplier != 1.0f
+					&& __instance.xpSinceMidnight > ModSettings.dailyXPSaturationThreshold)
+				{
+					__result *= ModSettings.saturatedXPMultiplier;
+				}
+			}
 		}
 	}
 }
