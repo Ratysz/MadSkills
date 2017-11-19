@@ -29,17 +29,17 @@ namespace RTMadSkills
 		{
 			switch (level)
 			{
-				case 10: return -0.10f;
-				case 11: return -0.20f;
-				case 12: return -0.40f;
-				case 13: return -0.65f;
-				case 14: return -1.00f;
-				case 15: return -1.5f;
-				case 16: return -2.00f;
-				case 17: return -3.00f;
-				case 18: return -4.00f;
-				case 19: return -6.00f;
-				case 20: return -8.00f;
+				case 10: return -0.1f;
+				case 11: return -0.2f;
+				case 12: return -0.4f;
+				case 13: return -0.6f;
+				case 14: return -1.0f;
+				case 15: return -1.8f;
+				case 16: return -2.8f;
+				case 17: return -4.0f;
+				case 18: return -6.0f;
+				case 19: return -8.0f;
+				case 20: return -12.0f;
 				default: return 0.0f;
 			}
 		}
