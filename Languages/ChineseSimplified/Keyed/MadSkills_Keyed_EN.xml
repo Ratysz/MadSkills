@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <MadSkills_SettingsCategory>疯狂技能</MadSkills_SettingsCategory>
+  <MadSkills_DailyXPSaturationThresholdLabel>每日经验限制</MadSkills_DailyXPSaturationThresholdLabel>
+  <MadSkills_DailyXPSaturationThresholdTip>RimWorld 默认值：4000
+技能获取的经验超出此限制之后，直到午夜之前，所有后续的学习会乘以下一项的值。</MadSkills_DailyXPSaturationThresholdTip>
+  <MadSkills_SaturatedXPMultiplierLabel>超限乘数</MadSkills_SaturatedXPMultiplierLabel>
+  <MadSkills_SaturatedXPMultiplierTip>RimWorld 默认值：20%
+当天技能获取的经验达到上一项的值之后，会乘以此项的值。
+设置为100%等效于完全禁用每日经验限制。</MadSkills_SaturatedXPMultiplierTip>
+  <MadSkills_MultiplierLabel>流失乘数</MadSkills_MultiplierLabel>
+  <MadSkills_MultiplierTip>RimWorld 默认值：100%
+默认技能经验流失速度会乘以此项的值。
+0%为不流失，50%为流失速度减半，200%为流失速度加倍，等等。</MadSkills_MultiplierTip>
+  <MadSkills_TieredLabel>防止掉级</MadSkills_TieredLabel>
+  <MadSkills_TieredTip>RimWorld 默认值：关闭
+防止技能掉级；经验流失会导致技能掉级，这取决于流失乘数的设置。</MadSkills_TieredTip>
+
+</LanguageData>
