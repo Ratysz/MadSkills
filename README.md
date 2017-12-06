@@ -1,2 +1,2 @@
 # MadSkills
-RimWorld mod; tweaks or turns off natural skill degradation.
+RimWorld mod; tweaks or turns off skill degradation and learning saturation.
