@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <MadSkills_SettingsCategory>Mad Skills</MadSkills_SettingsCategory>
+  <MadSkills_DailyXPSaturationThresholdLabel>1日のEXP制限</MadSkills_DailyXPSaturationThresholdLabel>
+  <MadSkills_DailyXPSaturationThresholdTip>RimWorldの初期値: 4000
+この数値のスキルEXPが獲得されると、それ以降のすべてのEXP取得には、日が変わるまで制限がかかります。</MadSkills_DailyXPSaturationThresholdTip>
+  <MadSkills_SaturatedXPMultiplierLabel>制限超過倍率</MadSkills_SaturatedXPMultiplierLabel>
+  <MadSkills_SaturatedXPMultiplierTip>RimWorldの初期値: 20%
+その日に得られるEXP上限値がすでに上回っているスキルで得られたEXPに乗算されます。
+毎日のEXP取得制限を完全に無効にするには、100％に設定します。</MadSkills_SaturatedXPMultiplierTip>
+  <MadSkills_MultiplierLabel>EXP損失倍率</MadSkills_MultiplierLabel>
+  <MadSkills_MultiplierTip>RimWorldの初期値: 100%
+何もしないでも自然に経験値が失われていく倍率(max100%)の初期値です。
+0%にするとEXPは減少しなくなります。50%で半分に、200%ならEXPの損失が二倍になります。</MadSkills_MultiplierTip>
+  <MadSkills_TieredLabel>Lv低下</MadSkills_TieredLabel>
+  <MadSkills_TieredTip>RimWorldの初期値: off
+Onにすると自然にスキルレベルが低下するのを防ぎます。Offの場合、EXP損失倍率の設定に応じて、EXPは次のレベルに低下します。</MadSkills_TieredTip>
+
+</LanguageData>
