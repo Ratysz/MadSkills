@@ -12,11 +12,14 @@ namespace RTMadSkills
 	[HarmonyPatch("Interval")]
 	static class Patch_SkillRecordInterval
 	{
+		static FieldInfo pawnField = AccessTools.Field(typeof(SkillRecord), "pawn");
+
 		static bool Prefix(SkillRecord __instance)
 		{
 			if (!ModSettings.tiered || __instance.XpProgressPercent > 0.1f)
 			{
-				float xpToLearn = VanillaMultiplier(__instance.levelInt) * ModSettings.multiplier;
+				float greatMemMultiplier = (!(pawnField.GetValue(__instance) as Pawn).story.traits.HasTrait(TraitDefOf.GreatMemory)) ? 1f : 0.5f;
+				float xpToLearn = greatMemMultiplier * VanillaMultiplier(__instance.levelInt) * ModSettings.multiplier;
 				if (xpToLearn != 0.0f)
 				{
 					__instance.Learn(xpToLearn, false);
