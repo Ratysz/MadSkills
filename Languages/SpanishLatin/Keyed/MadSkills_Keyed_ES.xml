@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<MadSkills_SettingsCategory>Mad Skills</MadSkills_SettingsCategory>
+	<MadSkills_DailyXPSaturationThresholdLabel>Límite diario de exp.</MadSkills_DailyXPSaturationThresholdLabel>
+	<MadSkills_DailyXPSaturationThresholdTip>Valor por defecto de RimWorld: 4000
+Después de acumular esa cantidad de experiencia en una habilidad, todo el aprendizaje posterior de la misma se multiplica por su valor por debajo, hasta la medianoche.</MadSkills_DailyXPSaturationThresholdTip>
+	<MadSkills_SaturatedXPMultiplierLabel>Multi. tras el limite</MadSkills_SaturatedXPMultiplierLabel>
+	<MadSkills_SaturatedXPMultiplierTip>Valor por defecto de RimWorld: 20%
+Multiplicador de la experiencia adquirida en una habilidad que ya ha alcanzado el límite diario.
+Ajústalo al 100% para desactivar el límite diario de experiencia.</MadSkills_SaturatedXPMultiplierTip>
+	<MadSkills_MultiplierLabel>Multi. de decadencia</MadSkills_MultiplierLabel>
+	<MadSkills_MultiplierTip>Valor por defecto de RimWorld: 100%
+Multiplicador de la experiencia perdida con el paso del tiempo en las habilidades
+0% para ninguna, 50% para la mitad, 200% para el doble, etc.</MadSkills_MultiplierTip>
+	<MadSkills_TieredLabel>Por niveles</MadSkills_TieredLabel>
+	<MadSkills_TieredTip>Valor por defecto de RimWorld: Apagado
+Evita que las habilidades bajen de nivel; la experiencia hasta el siguiente nivel decae según el ajuste de su multiplicador.</MadSkills_TieredTip>
+
+</LanguageData>
