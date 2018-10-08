@@ -17,12 +17,11 @@ namespace RTMadSkills
 			if (sk.LearningSaturatedToday)
 			{
 				oldStringBuilder.AppendLine();
-				oldStringBuilder.Append("LearnedMaxToday".Translate(new object[]
-				{
+				oldStringBuilder.Append("LearnedMaxToday".Translate(
 					sk.xpSinceMidnight,
 					4000,
 					0.2f.ToStringPercent("F0")
-				}));
+				));
 			}
 			oldStringBuilder.AppendLine();
 			oldStringBuilder.AppendLine();
@@ -32,12 +31,11 @@ namespace RTMadSkills
 				&& sk.xpSinceMidnight > ModSettings.dailyXPSaturationThreshold)
 			{
 				newStringBuilder.AppendLine();
-				newStringBuilder.Append("LearnedMaxToday".Translate(new object[]
-				{
+				newStringBuilder.Append("LearnedMaxToday".Translate(
 					sk.xpSinceMidnight,
 					Mathf.RoundToInt(ModSettings.dailyXPSaturationThreshold),
 					ModSettings.saturatedXPMultiplier.ToStringPercent("F0")
-				}));
+				));
 			}
 			stringRebuilder.Replace(oldStringBuilder.ToString(), newStringBuilder.ToString());
 			stringRebuilder.AppendLine();
