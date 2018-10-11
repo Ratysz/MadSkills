@@ -18,7 +18,7 @@ namespace RTMadSkills
 		{
 			if (!ModSettings.tiered || __instance.XpProgressPercent > 0.1f)
 			{
-				float greatMemMultiplier = (!(pawnField.GetValue(__instance) as Pawn).story.traits.HasTrait(TraitDefOf.GreatMemory)) ? 1f : 0.5f;
+				float greatMemMultiplier = (ModSettings.greatMemoryAltered || !(pawnField.GetValue(__instance) as Pawn).story.traits.HasTrait(TraitDefOf.GreatMemory)) ? 1f : 0.5f;
 				float xpToLearn = greatMemMultiplier * VanillaMultiplier(__instance.levelInt) * ModSettings.multiplier;
 				if (xpToLearn != 0.0f)
 				{

@@ -1,11 +1,72 @@
-﻿using Verse;
+﻿using Harmony;
+using RimWorld;
+using Verse;
 using UnityEngine;
+using System.Reflection;
+using System.Collections.Generic;
 
 namespace RTMadSkills
 {
+	[HarmonyPatch(typeof(DefGenerator))]
+	[HarmonyPatch("GenerateImpliedDefs_PostResolve")]
+	public class ModSettingsDefJockey
+	{
+		private static FieldInfo greatMemoryDegreeDatasField = AccessTools.Field(typeof(TraitDef), "degreeDatas");
+
+		private static bool valid = false;
+		private static TraitDef greatMemory = null;
+		private static List<TraitDegreeData> greatMemoryDegreeDatasBackup = null;
+		private static List<TraitDegreeData> greatMemoryDegreeDatasNew = null;
+
+		static void Postfix()
+		{
+			if (!valid)
+			{
+				greatMemory = DefDatabase<TraitDef>.GetNamed("GreatMemory");
+				greatMemoryDegreeDatasBackup = (List<TraitDegreeData>)greatMemoryDegreeDatasField.GetValue(greatMemory);
+
+				StatModifier modifier = new StatModifier();
+				modifier.stat = DefDatabase<StatDef>.GetNamed("GlobalLearningFactor");
+				modifier.value = 0.25f;
+				TraitDegreeData data = new TraitDegreeData();
+				data.statOffsets = new List<StatModifier>
+				{
+					modifier
+				};
+				data.label = greatMemoryDegreeDatasBackup[0].label;
+				data.description = "MadSkills_AlternativeGreatMemoryDescription".Translate();
+				greatMemoryDegreeDatasNew = new List<TraitDegreeData>
+				{
+					data
+				};
+
+				valid = true;
+			}
+			ApplyChanges(ModSettings.greatMemoryAltered);
+		}
+
+		static public void ApplyChanges(bool altered)
+		{
+			if (valid)
+			{
+				if (altered)
+				{
+					greatMemory.degreeDatas = greatMemoryDegreeDatasNew;
+					Log.Message("[MadSkills]: changed behavior of Great Memory trait.");
+				}
+				else
+				{
+					greatMemory.degreeDatas = greatMemoryDegreeDatasBackup;
+					Log.Message("[MadSkills]: restored behavior of Great Memory trait.");
+				}
+			}
+		}
+	}
+
 	public class ModSettings : Verse.ModSettings
 	{
 		public static bool tiered = false;
+		public static bool greatMemoryAltered = true;
 		private static int multiplierPercentage = 0;
 		public static float multiplier
 		{
@@ -36,17 +97,20 @@ namespace RTMadSkills
 		{
 			float multiplier_shadow = multiplier;
 			float saturatedXPMultiplier_shadow = saturatedXPMultiplier;
-			base.ExposeData();
 			Scribe_Values.Look(ref tiered, "tiered");
+			Scribe_Values.Look(ref greatMemoryAltered, "greatMemoryAltered");
 			Scribe_Values.Look(ref multiplier_shadow, "multiplier");
 			Scribe_Values.Look(ref dailyXPSaturationThreshold, "dailyXPSaturationThreshold");
 			Scribe_Values.Look(ref saturatedXPMultiplier_shadow, "saturatedXPMultiplier");
 			Log.Message("[MadSkills]: settings initialized, multiplier is " + multiplier_shadow
 				+ ", " + (tiered ? "tiered" : "not tiered")
 				+ ", daily XP threshold is " + dailyXPSaturationThreshold
-				+ ", saturated XP multiplier is " + saturatedXPMultiplier);
+				+ ", saturated XP multiplier is " + saturatedXPMultiplier
+				+ ", Great Memory trait is " + (greatMemoryAltered ? "" : "not ") + "altered.");
+			ModSettingsDefJockey.ApplyChanges(greatMemoryAltered);
 			multiplierPercentage = Mathf.RoundToInt(multiplier_shadow * 100);
 			saturatedXPmultiplierPercentage = Mathf.RoundToInt(saturatedXPMultiplier_shadow * 100);
+			base.ExposeData();
 		}
 
 		public string SettingsCategory()
@@ -109,6 +173,10 @@ namespace RTMadSkills
 				"MadSkills_TieredLabel".Translate(),
 				ref tiered,
 				"MadSkills_TieredTip".Translate());
+			list.CheckboxLabeled(
+				"MadSkills_AlterGreatMemoryLabel".Translate(),
+				ref greatMemoryAltered,
+				"MadSkills_AlterGreatMemoryTip".Translate());
 			list.End();
 		}
 	}

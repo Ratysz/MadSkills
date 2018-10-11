@@ -16,5 +16,9 @@ Value to multiply default skill XP decay potency by.
 	<MadSkills_TieredLabel>Tiered</MadSkills_TieredLabel>
 	<MadSkills_TieredTip>RimWorld default value: off
 Prevents skills from going down a level; XP to next level decays as per multiplier setting.</MadSkills_TieredTip>
+	<MadSkills_AlternativeGreatMemoryDescription>{PAWN_nameDef} has a fantastic memory for detail. {PAWN_pronoun} will learn new skills slightly faster than other people.</MadSkills_AlternativeGreatMemoryDescription>
+	<MadSkills_AlterGreatMemoryLabel>Alternative "great memory"</MadSkills_AlterGreatMemoryLabel>
+	<MadSkills_AlterGreatMemoryTip>RimWorld default value: off
+Changes behavior of "great memory" trait: instead of halving skill decay rate it will now increase learning rate by 25%.</MadSkills_AlterGreatMemoryTip>
 
 </LanguageData>

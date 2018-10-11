@@ -15,5 +15,11 @@
 	<MadSkills_TieredLabel>Не понижать уровень</MadSkills_TieredLabel>
 	<MadSkills_TieredTip>Обычное значение: отключено
 Предотвращает снижение уровня навыков; опыт до следующего уровня теряется в соответствии с настройкой множителя.</MadSkills_TieredTip>
+	<MadSkills_AlternativeGreatMemoryDescription>{PAWN_nameDef} хорошо запоминает детали, приобретая навыки немного быстрее обычного.</MadSkills_AlternativeGreatMemoryDescription>
+	<MadSkills_AlterGreatMemoryLabel>Изменить черту "хорошая память"</MadSkills_AlterGreatMemoryLabel>
+	<MadSkills_AlterGreatMemoryTip>Обычное значение: отключено
+Изменяет эффект черты характера "хорошая память" с снижения скорости падения навыков вдвое на увеличение общего фактора обучения на 25%.
+	</MadSkills_AlterGreatMemoryTip>
+
 
 </LanguageData>
