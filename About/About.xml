@@ -3,15 +3,12 @@
 	<name>Mad Skills</name>
 	<author>Ratys</author>
 	<url>https://ludeon.com/forums/index.php?topic=11148</url>
-	<targetVersion>1.0.2049</targetVersion>
-	<description>A tiny mod to tweak or turn off skill degradation and learning saturation.
+	<targetVersion>1.0.2056</targetVersion>
+	<description>A collection of tweaks (found in Options -> Mod Settings -> Mad Skills) to change or turn off skill degradation and learning saturation.
 
-Available options (found in Options -> Mod Settings -> Mad Skills):
- - Daily XP limit
- - Over-limit multiplier
- - Decay multiplier
- - Tiered
- - Alternative "great memory" trait
+Does not require a new colony to add, tune, or remove.
+
+Preview image by Shinzy.
 
 Available languages:
  - Chinese (simplified) (by duduluu; slightly outdated)
@@ -22,5 +19,5 @@ Available languages:
  - Spanish (Castilian) (by 53N4; slightly outdated)
  - Spanish (Latin America) (by 53N4; slightly outdated)
 
-Preview image by Shinzy.</description>
+Refer to forum thread for additional information.</description>
 </ModMetaData>

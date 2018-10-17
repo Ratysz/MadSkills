@@ -125,6 +125,31 @@ namespace RTMadSkills
 			list.Begin(rect);
 			list.Gap();
 			{
+				string buffer = multiplierPercentage.ToString();
+				Rect rectLine = list.GetRect(Text.LineHeight);
+				Rect rectLeft = rectLine.LeftHalf().Rounded();
+				Rect rectRight = rectLine.RightHalf().Rounded();
+				Rect rectPercent = rectRight.RightPartPixels(Text.LineHeight);
+				rectRight = rectRight.LeftPartPixels(rectRight.width - Text.LineHeight);
+				Widgets.DrawHighlightIfMouseover(rectLine);
+				TooltipHandler.TipRegion(rectLine, "MadSkills_MultiplierTip".Translate());
+				TextAnchor anchorBuffer = Text.Anchor;
+				Text.Anchor = TextAnchor.MiddleLeft;
+				Widgets.Label(rectLeft, "MadSkills_MultiplierLabel".Translate());
+				Text.Anchor = anchorBuffer;
+				Widgets.TextFieldNumeric(rectRight, ref multiplierPercentage, ref buffer, 0, 10000);
+				Widgets.Label(rectPercent, "%");
+			}
+			list.CheckboxLabeled(
+				"MadSkills_TieredLabel".Translate(),
+				ref tiered,
+				"MadSkills_TieredTip".Translate());
+			list.CheckboxLabeled(
+				"MadSkills_AlterGreatMemoryLabel".Translate(),
+				ref greatMemoryAltered,
+				"MadSkills_AlterGreatMemoryTip".Translate());
+			list.Gap();
+			{
 				string buffer = dailyXPSaturationThreshold.ToString();
 				Rect rectLine = list.GetRect(Text.LineHeight);
 				Rect rectLeft = rectLine.LeftHalf().Rounded();
@@ -153,30 +178,6 @@ namespace RTMadSkills
 				Widgets.TextFieldNumeric(rectRight, ref saturatedXPmultiplierPercentage, ref buffer, 0, 10000);
 				Widgets.Label(rectPercent, "%");
 			}
-			{
-				string buffer = multiplierPercentage.ToString();
-				Rect rectLine = list.GetRect(Text.LineHeight);
-				Rect rectLeft = rectLine.LeftHalf().Rounded();
-				Rect rectRight = rectLine.RightHalf().Rounded();
-				Rect rectPercent = rectRight.RightPartPixels(Text.LineHeight);
-				rectRight = rectRight.LeftPartPixels(rectRight.width - Text.LineHeight);
-				Widgets.DrawHighlightIfMouseover(rectLine);
-				TooltipHandler.TipRegion(rectLine, "MadSkills_MultiplierTip".Translate());
-				TextAnchor anchorBuffer = Text.Anchor;
-				Text.Anchor = TextAnchor.MiddleLeft;
-				Widgets.Label(rectLeft, "MadSkills_MultiplierLabel".Translate());
-				Text.Anchor = anchorBuffer;
-				Widgets.TextFieldNumeric(rectRight, ref multiplierPercentage, ref buffer, 0, 10000);
-				Widgets.Label(rectPercent, "%");
-			}
-			list.CheckboxLabeled(
-				"MadSkills_TieredLabel".Translate(),
-				ref tiered,
-				"MadSkills_TieredTip".Translate());
-			list.CheckboxLabeled(
-				"MadSkills_AlterGreatMemoryLabel".Translate(),
-				ref greatMemoryAltered,
-				"MadSkills_AlterGreatMemoryTip".Translate());
 			list.End();
 		}
 	}
