@@ -16,5 +16,9 @@ Multiplicador de la experiencia perdida con el paso del tiempo en las habilidade
 	<MadSkills_TieredLabel>Por niveles</MadSkills_TieredLabel>
 	<MadSkills_TieredTip>Valor por defecto de RimWorld: Apagado
 Evita que las habilidades bajen de nivel; la experiencia hasta el siguiente nivel decae según el ajuste de su multiplicador.</MadSkills_TieredTip>
+	<MadSkills_AlternativeGreatMemoryDescription>{PAWN_nameDef} tiene una memoria fantástica para los detalles. {PAWN_pronoun} aprenderá nuevas habilidades un poco más rápido que otras personas.</MadSkills_AlternativeGreatMemoryDescription>
+	<MadSkills_AlterGreatMemoryLabel>Alternativa "gran memoria"</MadSkills_AlterGreatMemoryLabel>
+	<MadSkills_AlterGreatMemoryTip>Valor por defecto de RimWorld: Apagado
+Cambia el comportamiento del rasgo de "gran memoria": en lugar de reducir a la mitad la tasa de decadencia de las habilidades, ahora aumentará la tasa de aprendizaje en un 25%.</MadSkills_AlterGreatMemoryTip>
 
 </LanguageData>
