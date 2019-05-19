@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<MadFertigkeits_SettingsCategory>Mad Levels</MadFertigkeits_SettingsCategory>
+	<MadFertigkeits_DailyXPSaturationThresholdLabel>Tägliches XP Limit</MadFertigkeits_DailyXPSaturationThresholdLabel>
+	<MadFertigkeits_DailyXPSaturationThresholdTip>RimWorld Standartwert: 4000
+Nachdem dieser Wert an erreichter Fertigkeit XP erreicht wird, werden alle darauf folgenden XP durch den unteren Wert multipliziert, bis Mitternacht.</MadFertigkeits_DailyXPSaturationThresholdTip>
+	<MadFertigkeits_SaturatedXPMultiplierLabel>Überschuss Multiplikator</MadFertigkeits_SaturatedXPMultiplierLabel>
+	<MadFertigkeits_SaturatedXPMultiplierTip>RimWorld Standartwert: 20%
+Multipliziert Erfahrungs Gewinn in einer Fertigkeit welche bereits am selbigen Tag den oben stehenden Wert überschritten hat.
+Auf 100% setzen, um das tÃ¤gliche XP-Limit zu deaktivieren.</MadFertigkeits_SaturatedXPMultiplierTip>
+	<MadFertigkeits_MultiplierLabel>Zerfall Multiplikator</MadFertigkeits_MultiplierLabel>
+	<MadFertigkeits_MultiplierTip>RimWorld Standartwert: 100%
+Wert, um die die Stärke des XP-Zerfalls der Fertigkeit multipliziert werden soll.
+0% für keinen, 50% für die Hälfte, 200% für das Doppelte, etc.</MadFertigkeits_MultiplierTip>
+	<MadFertigkeits_TieredLabel>Gestaffelt</MadFertigkeits_TieredLabel>
+	<MadFertigkeits_TieredTip>RimWorld Standartwert: off
+Verhindert Fertigkeits ein Level abzusteigen; XP zum nächsten Level zerfällt wie es in "Zerfall Multiplikator" eingestellt wurde.</MadFertigkeits_TieredTip>
+	<MadFertigkeits_AlternativeGreatMemoryDescription>{PAWN_nameDef} hat ein fantastisches Gedächtnis für Details. {PAWN_pronoun} wird neue Fertigkeits schneller erlernen als manch anderer.</MadFertigkeits_AlternativeGreatMemoryDescription>
+	<MadFertigkeits_AlterGreatMemoryLabel>Alternative "Gutes Gedächtnis"</MadFertigkeits_AlterGreatMemoryLabel>
+	<MadFertigkeits_AlterGreatMemoryTip>RimWorld Standartwert: off
+Verändert Verhalten von "Gutes Gedächtnis": Anstatt den Fertigkeit XP Verlust zu halbieren erhöht es nun die Lerngeschwindigkeit um 25%.</MadFertigkeits_AlterGreatMemoryTip>
+
+</LanguageData>
+
+
+
+
