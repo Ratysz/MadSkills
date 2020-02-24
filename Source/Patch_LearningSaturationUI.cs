@@ -1,47 +1,53 @@
 ﻿using Harmony;
 using RimWorld;
-using Verse;
-using UnityEngine;
 using System.Text;
+using UnityEngine;
+using Verse;
 
 namespace RTMadSkills
 {
 	[HarmonyPatch(typeof(SkillUI))]
 	[HarmonyPatch("GetSkillDescription")]
-	static class Patch_LearningSaturationUI
+	internal static class Patch_LearningSaturationUI
 	{
-		static void Postfix(ref string __result, SkillRecord sk)
+		private static void Postfix(ref string __result, SkillRecord sk)
 		{
-			StringBuilder stringRebuilder = new StringBuilder(__result);
-			StringBuilder oldStringBuilder = new StringBuilder();
-			if (sk.LearningSaturatedToday)
-			{
-				oldStringBuilder.AppendLine();
-				oldStringBuilder.Append("LearnedMaxToday".Translate(
-					sk.xpSinceMidnight,
-					4000,
-					0.2f.ToStringPercent("F0")
-				));
-			}
-			oldStringBuilder.AppendLine();
-			oldStringBuilder.AppendLine();
-			oldStringBuilder.Append(sk.def.description);
-			StringBuilder newStringBuilder = new StringBuilder();
 			if (ModSettings.saturatedXPMultiplier != 1.0f
 				&& sk.xpSinceMidnight > ModSettings.dailyXPSaturationThreshold)
 			{
-				newStringBuilder.AppendLine();
-				newStringBuilder.Append("LearnedMaxToday".Translate(
-					sk.xpSinceMidnight,
-					Mathf.RoundToInt(ModSettings.dailyXPSaturationThreshold),
-					ModSettings.saturatedXPMultiplier.ToStringPercent("F0")
-				));
+				StringBuilder stringRebuilder = new StringBuilder(__result);
+				StringBuilder oldStringBuilder = new StringBuilder();
+				StringBuilder newStringBuilder = new StringBuilder();
+				if (sk.LearningSaturatedToday)
+				{
+					oldStringBuilder.Append("LearnedMaxToday".Translate(
+						sk.xpSinceMidnight.ToString("F0"),
+						4000,
+						0.2f.ToStringPercent("F0")
+					));
+					newStringBuilder.Append("LearnedMaxToday".Translate(
+						sk.xpSinceMidnight.ToString("F0"),
+						Mathf.RoundToInt(ModSettings.dailyXPSaturationThreshold),
+						ModSettings.saturatedXPMultiplier.ToStringPercent("F0")
+					));
+					stringRebuilder.Replace(oldStringBuilder.ToString(), newStringBuilder.ToString());
+				}
+				else
+				{
+					oldStringBuilder.AppendLine();
+					oldStringBuilder.AppendLine();
+					oldStringBuilder.Append(sk.def.description);
+					newStringBuilder.AppendLine();
+					newStringBuilder.Append("LearnedMaxToday".Translate(
+						sk.xpSinceMidnight.ToString("F0"),
+						Mathf.RoundToInt(ModSettings.dailyXPSaturationThreshold),
+						ModSettings.saturatedXPMultiplier.ToStringPercent("F0")
+					));
+					stringRebuilder.Replace(oldStringBuilder.ToString(), newStringBuilder.ToString());
+					stringRebuilder.Append(oldStringBuilder);
+				}
+				__result = stringRebuilder.ToString();
 			}
-			stringRebuilder.Replace(oldStringBuilder.ToString(), newStringBuilder.ToString());
-			stringRebuilder.AppendLine();
-			stringRebuilder.AppendLine();
-			stringRebuilder.Append(sk.def.description);
-			__result = stringRebuilder.ToString();
 		}
 	}
 }
