@@ -2,8 +2,12 @@
 <ModMetaData>
 	<name>Mad Skills</name>
 	<author>Ratys</author>
+	<packageId>ratys.madskills</packageId>
 	<url>https://ludeon.com/forums/index.php?topic=11148</url>
-	<targetVersion>1.0.2059</targetVersion>
+	<supportedVersions>
+		<li>1.0</li>
+		<li>1.1</li>
+	</supportedVersions>
 	<description>A collection of tweaks (found in Options -> Mod Settings -> Mad Skills) to change or turn off skill degradation and learning saturation.
 
 Does not require a new colony to add, tune, or remove.

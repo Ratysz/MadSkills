@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<MadSkills_SettingsCategory>Mad Skills</MadSkills_SettingsCategory>
+	<MadSkills_DailyXPSaturationThresholdLabel>Дневной предел</MadSkills_DailyXPSaturationThresholdLabel>
+	<MadSkills_DailyXPSaturationThresholdTip>Обычное значение: 4000
+После достижения этого количества опыта в навыке, всё дальнейшее обучение будет умножаться на значение ниже, до полуночи.</MadSkills_DailyXPSaturationThresholdTip>
+	<MadSkills_SaturatedXPMultiplierLabel>Множ. за пределом</MadSkills_SaturatedXPMultiplierLabel>
+	<MadSkills_SaturatedXPMultiplierTip>Обычное значение: 20%
+Умножает получаемый опыт для превысивших ежедневный предел обучения навыков.</MadSkills_SaturatedXPMultiplierTip>
+	<MadSkills_MultiplierLabel>Множ. потери опыта</MadSkills_MultiplierLabel>
+	<MadSkills_MultiplierTip>Обычное значение: 100%
+Значение, умножающее стандартное падение опыта навыков со временем.
+0% для отключения, 50% для половины, 200% для удвоения, и т.д.</MadSkills_MultiplierTip>
+	<MadSkills_TieredLabel>Не понижать уровень</MadSkills_TieredLabel>
+	<MadSkills_TieredTip>Обычное значение: отключено
+Предотвращает снижение уровня навыков; опыт до следующего уровня теряется в соответствии с настройкой множителя.</MadSkills_TieredTip>
+	<MadSkills_AlternativeGreatMemoryDescription>{PAWN_nameDef} хорошо запоминает детали, приобретая навыки немного быстрее обычного.</MadSkills_AlternativeGreatMemoryDescription>
+	<MadSkills_AlterGreatMemoryLabel>Изменить черту "хорошая память"</MadSkills_AlterGreatMemoryLabel>
+	<MadSkills_AlterGreatMemoryTip>Обычное значение: отключено
+Изменяет эффект черты характера "хорошая память" с снижения скорости падения навыков вдвое на увеличение общего фактора обучения на 25%.
+	</MadSkills_AlterGreatMemoryTip>
+
+
+</LanguageData>

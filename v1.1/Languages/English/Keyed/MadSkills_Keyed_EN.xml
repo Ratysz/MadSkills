@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<MadSkills_SettingsCategory>Mad Skills</MadSkills_SettingsCategory>
+	<MadSkills_DailyXPSaturationThresholdLabel>Daily XP limit</MadSkills_DailyXPSaturationThresholdLabel>
+	<MadSkills_DailyXPSaturationThresholdTip>RimWorld default value: 4000
+After this amount of XP is earned in a skill, all subsequent learning of it is multiplied by value below, until midnight.</MadSkills_DailyXPSaturationThresholdTip>
+	<MadSkills_SaturatedXPMultiplierLabel>Over-limit multiplier</MadSkills_SaturatedXPMultiplierLabel>
+	<MadSkills_SaturatedXPMultiplierTip>RimWorld default value: 20%
+Multiplies XP gained in a skill which has already advanced the above amount that day.
+Set to 100% to disable daily XP limit altogether.</MadSkills_SaturatedXPMultiplierTip>
+	<MadSkills_MultiplierLabel>Decay multiplier</MadSkills_MultiplierLabel>
+	<MadSkills_MultiplierTip>RimWorld default value: 100%
+Value to multiply default skill XP decay potency by.
+0% for none, 50% for half, 200% for double, etc.</MadSkills_MultiplierTip>
+	<MadSkills_TieredLabel>Tiered</MadSkills_TieredLabel>
+	<MadSkills_TieredTip>RimWorld default value: off
+Prevents skills from going down a level; XP to next level decays as per multiplier setting.</MadSkills_TieredTip>
+	<MadSkills_AlternativeGreatMemoryDescription>{PAWN_nameDef} has a fantastic memory for detail. {PAWN_pronoun} will learn new skills slightly faster than other people.</MadSkills_AlternativeGreatMemoryDescription>
+	<MadSkills_AlterGreatMemoryLabel>Alternative "great memory"</MadSkills_AlterGreatMemoryLabel>
+	<MadSkills_AlterGreatMemoryTip>RimWorld default value: off
+Changes behavior of "great memory" trait: instead of halving skill decay rate it will now increase learning rate by 25%.</MadSkills_AlterGreatMemoryTip>
+
+</LanguageData>
