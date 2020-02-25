@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<MadSkills_SettingsCategory>Mad Skills</MadSkills_SettingsCategory>
+	<MadSkills_DailyXPSaturationThresholdLabel>每日经验值上限</MadSkills_DailyXPSaturationThresholdLabel>
+	<MadSkills_DailyXPSaturationThresholdTip>边缘世界默认值：4000
+当你达到这里的设定值后，直到午夜前都会按照下面一个设置的比例获取经验。</MadSkills_DailyXPSaturationThresholdTip>
+	<MadSkills_SaturatedXPMultiplierLabel>防沉迷</MadSkills_SaturatedXPMultiplierLabel>
+  <!--Chinese pun for this translation-->
+	<MadSkills_SaturatedXPMultiplierTip>边缘世界默认值：20%
+超过每日经验上限部分的经验获取比例。设定为100%则是移除上限。</MadSkills_SaturatedXPMultiplierTip>
+	<MadSkills_MultiplierLabel>经验衰减速率</MadSkills_MultiplierLabel>
+	<MadSkills_MultiplierTip>边缘世界默认值：100%
+0是不衰减50%是衰减速率减半，你也可以疯狂到设定到高倍数来玩心跳。</MadSkills_MultiplierTip>
+	<MadSkills_TieredLabel>降级设定</MadSkills_TieredLabel>
+	<MadSkills_TieredTip>边缘世界默认值：关
+防止降级</MadSkills_TieredTip>
+	<MadSkills_AlternativeGreatMemoryDescription>{PAWN_nameDef} 有一个更好的记性。 {PAWN_pronoun} 会比别人学得快。</MadSkills_AlternativeGreatMemoryDescription>
+	<MadSkills_AlterGreatMemoryLabel>替代特性“过目不忘”</MadSkills_AlterGreatMemoryLabel>
+	<MadSkills_AlterGreatMemoryTip>边缘世界默认值：off
+将旧版“过目不忘”的减半经验衰减速率变为增加25%学习速度。</MadSkills_AlterGreatMemoryTip>
+
+</LanguageData>
