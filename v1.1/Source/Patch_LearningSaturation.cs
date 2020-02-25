@@ -13,7 +13,6 @@ namespace RTMadSkills
 	{
 		static void Postfix(SkillRecord __instance, ref float __result, bool direct = false)
 		{
-			Log.Message("xpSinceMidnight = " + __instance.xpSinceMidnight + " dailyXPSaturationThreshold = " + ModSettings.dailyXPSaturationThreshold);
 			if (!direct)
 			{
 				if (__instance.LearningSaturatedToday)
