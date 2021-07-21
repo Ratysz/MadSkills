@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Reflection.Emit;
@@ -10,11 +11,11 @@ namespace RTMadSkills
 	[HarmonyPriority(Priority.HigherThanNormal)]
 	[HarmonyPatch(typeof(SkillRecord))]
 	[HarmonyPatch("Interval")]
-	static class Patch_SkillRecordInterval
+	internal static class Patch_SkillRecordInterval
 	{
-		static FieldInfo pawnField = AccessTools.Field(typeof(SkillRecord), "pawn");
+		private static FieldInfo pawnField = AccessTools.Field(typeof(SkillRecord), "pawn");
 
-		static bool Prefix(SkillRecord __instance)
+		private static bool Prefix(SkillRecord __instance)
 		{
 			if (!ModSettings.tiered || __instance.XpProgressPercent > 0.1f)
 			{
@@ -28,7 +29,7 @@ namespace RTMadSkills
 			return false;
 		}
 
-		static float VanillaMultiplier(int level)
+		private static float VanillaMultiplier(int level)
 		{
 			switch (level)
 			{
@@ -50,12 +51,16 @@ namespace RTMadSkills
 
 	[HarmonyPatch(typeof(SkillRecord))]
 	[HarmonyPatch("LearnRateFactor")]
-	static class Patch_LearningSaturation
+	internal static class Patch_SkillRecordLearnRateFactor
 	{
-		static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+		private static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
 		{
+			var _instructions = instructions.MethodReplacer(
+				AccessTools.Property(typeof(SkillRecord), nameof(SkillRecord.LearningSaturatedToday)).GetGetMethod(),
+				AccessTools.Method(typeof(Patch_SkillRecordLearnRateFactor), nameof(Patch_SkillRecordLearnRateFactor.LearningSaturatedToday))
+			);
 			var patched = false;
-			foreach (var instruction in instructions)
+			foreach (var instruction in _instructions)
 			{
 				if (!patched && instruction.opcode == OpCodes.Ldc_R4 && System.Convert.ToSingle(instruction.operand) == 0.2f)
 				{
@@ -66,25 +71,21 @@ namespace RTMadSkills
 				yield return instruction;
 			}
 		}
+
+		private static bool LearningSaturatedToday(SkillRecord instance)
+		{
+			return instance.xpSinceMidnight > ModSettings.dailyXPSaturationThreshold;
+		}
 	}
 
 	[HarmonyPatch(typeof(SkillRecord))]
 	[HarmonyPatch("LearningSaturatedToday", MethodType.Getter)]
-	static class Patch_SkillRecordLearningSaturatedToday
+	internal static class Patch_SkillRecordLearningSaturatedToday
 	{
-		static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+		private static bool Prefix(SkillRecord __instance, ref bool __result)
 		{
-			var patched = false;
-			foreach (var instruction in instructions)
-			{
-				if (!patched && instruction.opcode == OpCodes.Ldc_R4 && System.Convert.ToSingle(instruction.operand) == 4000f)
-				{
-					patched = true;
-					yield return new CodeInstruction(OpCodes.Ldsfld, AccessTools.Field(typeof(ModSettings), nameof(ModSettings.dailyXPSaturationThreshold)));
-					continue;
-				}
-				yield return instruction;
-			}
+			__result = __instance.xpSinceMidnight > ModSettings.dailyXPSaturationThreshold;
+			return false;
 		}
 	}
 }
