@@ -17,6 +17,10 @@ namespace RTMadSkills
 
 		private static bool Prefix(SkillRecord __instance)
 		{
+			if (ModSettings.sleepStopDecaying && !(pawnField.GetValue(__instance) as Pawn).Awake())
+			{
+				return false;
+			}
 			if (!ModSettings.tiered || __instance.XpProgressPercent > 0.1f)
 			{
 				float greatMemMultiplier = (ModSettings.greatMemoryAltered || !(pawnField.GetValue(__instance) as Pawn).story.traits.HasTrait(TraitDefOf.GreatMemory)) ? 1f : 0.5f;

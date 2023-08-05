@@ -66,6 +66,7 @@ namespace RTMadSkills
 	public class ModSettings : Verse.ModSettings
 	{
 		public static bool tiered = false;
+		public static bool sleepStopDecaying = false;
 		public static bool greatMemoryAltered = true;
 		private static int multiplierPercentage = 0;
 		public static float multiplier
@@ -98,6 +99,7 @@ namespace RTMadSkills
 			float multiplier_shadow = multiplier;
 			float saturatedXPMultiplier_shadow = saturatedXPMultiplier;
 			Scribe_Values.Look(ref tiered, "tiered");
+			Scribe_Values.Look(ref sleepStopDecaying, "sleepStopDecaying");
 			Scribe_Values.Look(ref greatMemoryAltered, "greatMemoryAltered");
 			Scribe_Values.Look(ref multiplier_shadow, "multiplier");
 			Scribe_Values.Look(ref dailyXPSaturationThreshold, "dailyXPSaturationThreshold");
@@ -144,6 +146,10 @@ namespace RTMadSkills
 				"MadSkills_TieredLabel".Translate(),
 				ref tiered,
 				"MadSkills_TieredTip".Translate());
+			list.CheckboxLabeled(
+				"MadSkills_sleepStopDecayingLabel".Translate(),
+				ref sleepStopDecaying,
+				"MadSkills_sleepStopDecayingTip".Translate());
 			list.CheckboxLabeled(
 				"MadSkills_AlterGreatMemoryLabel".Translate(),
 				ref greatMemoryAltered,

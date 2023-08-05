@@ -16,6 +16,9 @@ Value to multiply default skill XP decay potency by.
 	<MadSkills_TieredLabel>Tiered</MadSkills_TieredLabel>
 	<MadSkills_TieredTip>RimWorld default value: off
 Prevents skills from going down a level; XP to next level decays as per multiplier setting.</MadSkills_TieredTip>
+	<MadSkills_SleepStopDecayingLabel>Sleep stop decaying</MadSkills_SleepStopDecayingLabel>
+	<MadSkills_SleepStopDecayingTip>RimWorld default value: off
+Only awaken pawn will lose their skill XP.</MadSkills_SleepStopDecayingTip>
 	<MadSkills_AlternativeGreatMemoryDescription>{PAWN_nameDef} has a fantastic memory for detail. {PAWN_pronoun} will learn new skills slightly faster than other people.</MadSkills_AlternativeGreatMemoryDescription>
 	<MadSkills_AlterGreatMemoryLabel>Alternative "great memory"</MadSkills_AlterGreatMemoryLabel>
 	<MadSkills_AlterGreatMemoryTip>RimWorld default value: off
