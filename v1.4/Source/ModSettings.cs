@@ -93,6 +93,7 @@ namespace RTMadSkills
 			}
 		}
 		private static int saturatedXPmultiplierPercentage = 20;
+		public static float retentionHours = 0;
 
 		public override void ExposeData()
 		{
@@ -104,6 +105,7 @@ namespace RTMadSkills
 			Scribe_Values.Look(ref multiplier_shadow, "multiplier");
 			Scribe_Values.Look(ref dailyXPSaturationThreshold, "dailyXPSaturationThreshold");
 			Scribe_Values.Look(ref saturatedXPMultiplier_shadow, "saturatedXPMultiplier");
+			Scribe_Values.Look(ref retentionHours, "retentionHours");
 			Log.Message("[MadSkills]: settings initialized, multiplier is " + multiplier_shadow
 				+ ", " + (tiered ? "tiered" : "not tiered")
 				+ ", daily XP threshold is " + dailyXPSaturationThreshold
@@ -155,6 +157,19 @@ namespace RTMadSkills
 				ref greatMemoryAltered,
 				"MadSkills_AlterGreatMemoryTip".Translate());
 			list.Gap();
+			{
+				string buffer = retentionHours.ToString();
+				Rect rectLine = list.GetRect(Text.LineHeight);
+				Rect rectLeft = rectLine.LeftHalf().Rounded();
+				Rect rectRight = rectLine.RightHalf().Rounded();
+				Widgets.DrawHighlightIfMouseover(rectLine);
+				TooltipHandler.TipRegion(rectLine, "MadSkills_RetentionHoursTip".Translate());
+				TextAnchor anchorBuffer = Text.Anchor;
+				Text.Anchor = TextAnchor.MiddleLeft;
+				Widgets.Label(rectLeft, "MadSkills_RetentionHoursLabel".Translate());
+				Text.Anchor = anchorBuffer;
+				Widgets.TextFieldNumeric(rectRight, ref retentionHours, ref buffer, 0, 100000);
+			}
 			{
 				string buffer = dailyXPSaturationThreshold.ToString();
 				Rect rectLine = list.GetRect(Text.LineHeight);

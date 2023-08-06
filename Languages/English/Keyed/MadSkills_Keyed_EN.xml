@@ -2,6 +2,9 @@
 <LanguageData>
 
 	<MadSkills_SettingsCategory>Mad Skills</MadSkills_SettingsCategory>
+	<MadSkills_RetentionHoursLabel>Retention hours</MadSkills_RetentionHoursLabel>
+	<MadSkills_RetentionHoursTip>RimWorld default value: 0
+Pawn will stop losing skill XP in given hours after learning that skill.</MadSkills_RetentionHoursTip>
 	<MadSkills_DailyXPSaturationThresholdLabel>Daily XP limit</MadSkills_DailyXPSaturationThresholdLabel>
 	<MadSkills_DailyXPSaturationThresholdTip>RimWorld default value: 4000
 After this amount of XP is earned in a skill, all subsequent learning of it is multiplied by value below, until midnight.</MadSkills_DailyXPSaturationThresholdTip>
