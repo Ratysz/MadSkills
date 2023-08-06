@@ -147,9 +147,9 @@ namespace RTMadSkills
 				ref tiered,
 				"MadSkills_TieredTip".Translate());
 			list.CheckboxLabeled(
-				"MadSkills_sleepStopDecayingLabel".Translate(),
+				"MadSkills_SleepStopDecayingLabel".Translate(),
 				ref sleepStopDecaying,
-				"MadSkills_sleepStopDecayingTip".Translate());
+				"MadSkills_SleepStopDecayingTip".Translate());
 			list.CheckboxLabeled(
 				"MadSkills_AlterGreatMemoryLabel".Translate(),
 				ref greatMemoryAltered,
