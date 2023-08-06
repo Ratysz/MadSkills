@@ -2,7 +2,6 @@
 using RimWorld;
 using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using System.Reflection;
 using System.Reflection.Emit;
 using Verse;
@@ -33,12 +32,6 @@ namespace RTMadSkills
 				{
 					xpToLearn *= (float)ForgetRateFactor.Invoke(null, new object[] { __instance });
 				}
-				if (ModSettings.retentionHours > 0f
-					&& Patch_SkillRecordLearn.retention.TryGetValue(__instance, out object tick)
-					&& (int)tick + ModSettings.retentionHours*2500 > Find.TickManager.TicksGame)
-				{
-					xpToLearn = 0f;
-				}
 				if (xpToLearn != 0.0f)
 				{
 					__instance.Learn(xpToLearn, false);
@@ -63,22 +56,6 @@ namespace RTMadSkills
 				case 19: return -8.0f;
 				case 20: return -12.0f;
 				default: return 0.0f;
-			}
-		}
-	}
-
-	[HarmonyPatch(typeof(SkillRecord))]
-	[HarmonyPatch("Learn")]
-	internal static class Patch_SkillRecordLearn
-	{
-		// weak ref to prevent mem leak
-		public static ConditionalWeakTable<SkillRecord, object> retention = new ConditionalWeakTable<SkillRecord, object>();
-        private static void Postfix(SkillRecord __instance, float xp, bool direct)
-		{
-			if (xp > 0f && !direct)
-			{
-				retention.Remove(__instance);
-				retention.Add(__instance, (object)Find.TickManager.TicksGame); // require boxing
 			}
 		}
 	}
