@@ -14,6 +14,9 @@ namespace RTMadSkills
 	internal static class Patch_SkillRecordInterval
 	{
 		private static FieldInfo pawnField = AccessTools.Field(typeof(SkillRecord), "pawn");
+		// VSE compatible
+		private static bool VSE = ModLister.HasActiveModWithName("Vanilla Skills Expanded");
+        private static MethodInfo ForgetRateFactor = AccessTools.Method("VSE.Passions.PassionManager:ForgetRateFactor");
 
 		private static bool Prefix(SkillRecord __instance)
 		{
@@ -25,6 +28,10 @@ namespace RTMadSkills
 			{
 				float greatMemMultiplier = (ModSettings.greatMemoryAltered || !(pawnField.GetValue(__instance) as Pawn).story.traits.HasTrait(TraitDefOf.GreatMemory)) ? 1f : 0.5f;
 				float xpToLearn = greatMemMultiplier * VanillaMultiplier(__instance.levelInt) * ModSettings.multiplier;
+				if (VSE)
+				{
+					xpToLearn *= (float)ForgetRateFactor.Invoke(null, new object[] { __instance });
+				}
 				if (xpToLearn != 0.0f)
 				{
 					__instance.Learn(xpToLearn, false);
